@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 /**
  * Created by Administrator on 2017/8/6.
- * 建立Utility，解析和处理服务器返回的JSon数据
+ * 建立Utility，解析和处理服务器返回的JSon数据并将数据加入数据库
  *handleProvince（）方法、handleCity（）方法、handleCounty（）方法
  */
 
