@@ -35,7 +35,10 @@ import okhttp3.Response;
 
 /**
  * Created by Administrator on 2017/8/7.
- *
+ *建立ChooseAreaFragment，继承Fragment，完成遍历省市县三级列表的功能
+ * OnCreateView()、OnActivityCreated()
+ * queryProvinces()、queryCounties()、queryCities()、queryFromServer(String address, final String type)
+ * closeProgressDialog()、showProgressDialog()
  */
 
 public class ChooseAreaFragment extends Fragment {
