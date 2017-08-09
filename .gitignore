@@ -14,10 +14,8 @@ gen/
 out/
 
 # Gradle files
-app/build.gradle
 .gradle/
 build/
-gradle.properties
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -55,3 +53,6 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
+
+
+gradle.properties
