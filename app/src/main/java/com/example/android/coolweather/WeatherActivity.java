@@ -76,7 +76,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     public void requestWeather(final String weatherId) {
-        String weatherUrl = "http://guolin.tech/api/weather?cityId="+
+        String weatherUrl = "http://guolin.tech/api/weather?cityid="+
                 weatherId + "&key=fe627bf2bafe40f086ad85e2d03c1b91";
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
 
@@ -107,6 +107,9 @@ public class WeatherActivity extends AppCompatActivity {
                             editor.putString("weather", responseText);
                             editor.apply();
                             showWeatherInfo(weather);
+                        }else {
+                            Toast.makeText(WeatherActivity.this,"获取天气信息失败",Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     }
                 });
@@ -149,6 +152,9 @@ public class WeatherActivity extends AppCompatActivity {
         String comfort = "舒适度：" + weather.suggestion.comfort.info;
         String carWash = "洗车指数：" + weather.suggestion.cashWash.info;
         String sport = "运动建议：" + weather.suggestion.sport.info;
+        comfortText.setText(comfort);
+        carWashText.setText(carWash);
+        sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
     }
 }
