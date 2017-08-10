@@ -17,7 +17,6 @@ import com.example.android.coolweather.util.HttpUtil;
 import com.example.android.coolweather.util.Utility;
 
 import java.io.IOException;
-import java.util.zip.Inflater;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -28,7 +27,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     private TextView titleCity;
 
-    private TextView titleUpdateTeme;
+    private TextView titleUpdateTime;
 
     private TextView degressText;
 
@@ -53,7 +52,7 @@ public class WeatherActivity extends AppCompatActivity {
         //初始化各控件
         weatherLayout = (ScrollView) findViewById(R.id.weather_layout);
         titleCity = (TextView) findViewById(R.id.title_city);
-        titleUpdateTeme = (TextView) findViewById(R.id.title_update_time);
+        titleUpdateTime = (TextView) findViewById(R.id.title_update_time);
         degressText = (TextView) findViewById(R.id.degree_text);
         weatherInfoText = (TextView) findViewById(R.id.weather_info_text);
         forecastLayout = (LinearLayout) findViewById(R.id.forecast_layout);
@@ -79,7 +78,7 @@ public class WeatherActivity extends AppCompatActivity {
     public void requestWeather(final String weatherId) {
         String weatherUrl = "http://guolin.tech/api/weather?cityId="+
                 weatherId + "&key=fe627bf2bafe40f086ad85e2d03c1b91";
-        HttpUtil.sendOkHttpRequest(weatherId, new Callback() {
+        HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {
@@ -126,7 +125,7 @@ public class WeatherActivity extends AppCompatActivity {
         String degress = weather.now.temperature + "℃";
         String weatherInfo = weather.now.more.info;
         titleCity.setText(cityName);
-        titleUpdateTeme.setText(updateTime);
+        titleUpdateTime.setText(updateTime);
         degressText.setText(degress);
         weatherInfoText.setText(weatherInfo);
         forecastLayout.removeAllViews();
